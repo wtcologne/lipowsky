@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lipowsky (2006) — Zusammenfassung + Original-PDF (Sprung · v6, vertikale Unterpunkte)</title>
+  <style>
+    :root{
+      --bg:#f8fafc; --text:#0f172a; --muted:#334155; --border:rgba(2,6,23,.12);
+      --accent:#2563eb; --quote:#f1f5f9; --mark:#fde68a;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--text); background:var(--bg); line-height:1.6}
+    a{color:var(--accent); text-decoration:none}
+    header{position:sticky; top:0; z-index:10; background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.85)); border-bottom:1px solid var(--border); backdrop-filter: blur(6px)}
+    .wrap{max-width:1400px; margin:0 auto; padding:14px 18px}
+    .title{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .title h1{margin:0; font-size:20px}
+    .badge{background:#eef2f7; border:1px solid var(--border); border-radius:999px; padding:4px 10px; font-size:12px}
+    .controls{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:8px}
+    .btn{border:1px solid var(--border); background:#fff; padding:8px 10px; border-radius:10px; cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg, rgba(22,163,74,.08), rgba(37,99,235,.08)); border-color:rgba(2,6,23,.18)}
+    .layout{max-width:1400px; margin:16px auto 32px; padding:0 18px; display:grid; grid-template-columns: 1.25fr 1.75fr; gap:16px}
+    @media (max-width:1100px){ .layout{grid-template-columns:1fr} }
+    .left, .right{background:#fff; border:1px solid var(--border); border-radius:16px}
+    .left{padding:14px; overflow:auto; max-height:calc(100vh - 160px)}
+    .right{padding:0; overflow:hidden; min-height:70vh; height:calc(100vh - 160px); display:grid}
+    #pdfHost{position:relative; width:100%; height:100%}
+    embed, iframe{width:100%; height:100%; border:0; display:block}
+    h2{margin:8px 0 10px; font-size:20px}
+    h3{margin:10px 0 8px; font-size:16px; color:var(--muted)}
+    .section{border:1px solid var(--border); border-radius:12px; margin:10px 0; overflow:hidden; background:#fff}
+    .section > summary{list-style:none; cursor:pointer; font-weight:700; padding:10px 12px; background:linear-gradient(180deg, rgba(2,6,23,.04), transparent)}
+    .section > summary::-webkit-details-marker{display:none}
+    .inner{padding:10px 12px}
+    .sub{border:1px dashed var(--border); border-radius:10px; padding:10px; margin:10px 0; background:#fff}
+    .jump{display:inline-flex; gap:8px; align-items:center; margin:6px 0 0}
+    .jump .btn{padding:6px 8px; font-size:12px}
+    blockquote{border-left:4px solid var(--accent); background:var(--quote); padding:8px 10px; border-radius:6px; white-space:pre-wrap}
+    .muted{color:#475569}
+    .note{font-size:12px; color:#475569; margin-top:6px}
+    /* NEW: force vertical stacking everywhere */
+    .grid2{display:block}  /* neutralize 2‑column grid */
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="title">
+      <h1>Auf den Lehrer kommt es an — Zusammenfassung + Original-PDF</h1>
+      <span class="badge">Frank Lipowsky (2006)</span>
+    </div>
+    <div class="controls">
+      <button class="btn" id="openAll">Alle öffnen</button>
+      <button class="btn" id="closeAll">Alle schließen</button>
+      <button class="btn" id="toggleEdit">Seitennummern bearbeiten</button>
+      <button class="btn primary" id="openPdf">PDF in neuem Tab</button>
+    </div>
+    <div class="note">Vertikale Darstellung: Alle Unterpunkte in 3.x und 4.x sind jetzt untereinander angeordnet. Zuordnung: <strong>Erste Artikelseite = PDF‑Seite 6</strong>.</div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="left" id="sidebar">
+    <h2>Gliederung (mit Unterabschnitten & Zitaten)</h2>
+
+    <!-- 1. Einleitung -->
+    <details class="section" open id="sec-einleitung">
+      <summary>1. Einleitung</summary>
+      <div class="inner">
+        <p>Leitthese, Ziel des Übersichtsbeitrags, theoretisch‑empirischer Rahmen.</p>
+        <blockquote>„Es kommt auf den Lehrer an … Dieser Übersichtsbeitrag stellt dar, welche empirischen Evidenzen sich zur Stützung dieser These finden lassen …“</blockquote>
+        <div class="jump">
+          <button class="btn" data-target="einleitung">Zum Original (Seite <span data-page-label="einleitung"></span>)</button>
+        </div>
+        <div class="editbar" data-edit="einleitung" hidden>
+          Seite: <input type="number" min="1">
+        </div>
+      </div>
+    </details>
+
+    <!-- 2. Determinanten -->
+    <details class="section" open id="sec-determinanten">
+      <summary>2. Determinanten des Lernerfolgs (Angebots‑Nutzungs‑Modell)</summary>
+      <div class="inner">
+        <div class="sub">
+          <h3>2.1 Theoretischer Rahmen</h3>
+          <p>Mehrebenenmodell (Schüler · Klasse/Lehrer · Schule) mit direkten und <em>indirekten</em> Pfaden über Nutzung/Verarbeitung.</p>
+          <blockquote>„… Varianz‑ bzw. mehrebenenanalytische Auswertungsverfahren geben zunächst Aufschluss darüber, inwieweit Leistungsunterschiede … erklärt werden können.“</blockquote>
+          <div class="jump">
+            <button class="btn" data-target="determinanten">Zum Original (Seite <span data-page-label="determinanten"></span>)</button>
+          </div>
+          <div class="editbar" data-edit="determinanten" hidden>
+            Seite: <input type="number" min="1">
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 3. Lehrerkompetenzen -->
+    <details class="section" id="sec-kompetenzen">
+      <summary>3. Lehrerkompetenzen als Prädiktoren für Schülerleistungen</summary>
+      <div class="inner">
+        <p class="muted">Umfasst fachliches/fachdidaktisches/pädagogisches Wissen, Berufserfahrung, Überzeugungen, selbstbezogene Kognitionen.</p>
+
+        <!-- Stacked vertically (no grid) -->
+        <div class="sub">
+          <h3>3.1 Fachliches Wissen</h3>
+          <p>Positiver Zusammenhang (v. a. Mathematik), aber nicht hinreichend ohne didaktische Umsetzung.</p>
+          <blockquote>„… positive Zusammenhänge zwischen dem Ausmaß fachlichen Wissens und der Lernentwicklung der Schüler zu erwarten.“</blockquote>
+          <div class="jump"><button class="btn" data-target="k_3_1">Zum Original (S. <span data-page-label="k_3_1"></span>)</button></div>
+          <div class="editbar" data-edit="k_3_1" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>3.2 Fachdidaktisches Wissen (CGI)</h3>
+          <p>Unterrichtsnahe Fortbildung (CGI) mit Vorteilen gegenüber theorielastigen Formaten.</p>
+          <blockquote>„Unterrichtsbeobachtungen … ergaben deutliche Vorteile von CGI‑Klassen …“</blockquote>
+          <div class="jump"><button class="btn" data-target="k_3_2">Zum Original (S. <span data-page-label="k_3_2"></span>)</button></div>
+          <div class="editbar" data-edit="k_3_2" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>3.3 Pädagogisches Wissen</h3>
+          <p>Zertifizierung/Pädagogikausbildung → bessere Klassenführung, Feedback, adaptiver/anspruchsvoller Unterricht.</p>
+          <blockquote>„… geben angemesseneres Feedback sowie unterrichten flexibler, adaptiver und auf einem anspruchsvolleren Niveau.“</blockquote>
+          <div class="jump"><button class="btn" data-target="k_3_3">Zum Original (S. <span data-page-label="k_3_3"></span>)</button></div>
+          <div class="editbar" data-edit="k_3_3" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>3.4 Berufserfahrung</h3>
+          <p>Wirkungen v. a. in frühen Dienstjahren; insgesamt gemischte Befundlage.</p>
+          <div class="jump"><button class="btn" data-target="k_3_4">Zum Original (S. <span data-page-label="k_3_4"></span>)</button></div>
+          <div class="editbar" data-edit="k_3_4" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>3.5 Epistemologische Überzeugungen</h3>
+          <p>Konstruktivistische Orientierung erklärt Leistungsunterschiede; Zusammenhänge u. a. bei Staub & Stern (2002).</p>
+          <blockquote>„… ein erheblicher Teil der Leistungsunterschiede … mit Unterschieden in der konstruktivistischen Orientierung der Lehrer erklärt werden kann.“</blockquote>
+          <div class="jump"><button class="btn" data-target="k_3_5">Zum Original (S. <span data-page-label="k_3_5"></span>)</button></div>
+          <div class="editbar" data-edit="k_3_5" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>3.6 Selbstbezogene Kognitionen (Teacher‑Efficacy)</h3>
+          <p>Höhere Wirksamkeitsüberzeugung → höhere Ziele, mehr Planung/Innovation, Ausdauer mit schwächeren Schüler:innen.</p>
+          <blockquote>„… personal teacher efficacy und general teacher efficacy korrespondieren mit Merkmalen des Lehrerhandelns …“</blockquote>
+          <div class="jump"><button class="btn" data-target="k_3_6">Zum Original (S. <span data-page-label="k_3_6"></span>)</button></div>
+          <div class="editbar" data-edit="k_3_6" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 4. Lehrerhandeln/Unterricht -->
+    <details class="section" id="sec-unterricht">
+      <summary>4. Lehrerhandeln &amp; Merkmale des Unterrichts</summary>
+      <div class="inner">
+
+        <div class="sub">
+          <h3>4.1 Quantität der Lerngelegenheiten</h3>
+          <p>Lernzeit & „time on task“ als Basis – mit aktuellen Modellen verknüpft.</p>
+          <blockquote>„… Lernzeit … gelten … als basale Voraussetzungen für den Lernerfolg …“</blockquote>
+          <div class="jump"><button class="btn" data-target="u_4_1">Zum Original (S. <span data-page-label="u_4_1"></span>)</button></div>
+          <div class="editbar" data-edit="u_4_1" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>4.2 Qualität der Lerngelegenheiten</h3>
+          <p>Kernkriterien: Strukturierung/Klarheit, Rückmeldungen, Üben/Wiederholen, Hausaufgaben, kooperative Lernformen.</p>
+          <div class="jump"><button class="btn" data-target="u_4_2">Zum Original (S. <span data-page-label="u_4_2"></span>)</button></div>
+          <div class="editbar" data-edit="u_4_2" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>4.2.1 Strukturierung & Klarheit</h3>
+          <p>Inhalte hervorheben; Zusammenhänge vernetzen; sprachliche/inhaltsbezogene Klarheit.</p>
+          <blockquote>„Maßnahmen inhaltlicher Strukturierung zielen darauf ab, … Zusammenhänge … zu verdeutlichen.“</blockquote>
+          <div class="jump"><button class="btn" data-target="u_4_2_1">Zum Original (S. <span data-page-label="u_4_2_1"></span>)</button></div>
+          <div class="editbar" data-edit="u_4_2_1" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>4.2.2 Rückmeldungen</h3>
+          <p>Ziele setzen & kriteriumsorientiertes Feedback → besonders wirksam.</p>
+          <blockquote>„… ‚Ziele setzen und kriteriumsorientierte Rückmeldungen geben‘.“</blockquote>
+          <div class="jump"><button class="btn" data-target="u_4_2_2">Zum Original (S. <span data-page-label="u_4_2_2"></span>)</button></div>
+          <div class="editbar" data-edit="u_4_2_2" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>4.2.3 Kooperatives Lernen</h3>
+          <p>Wirkungen in Metaanalysen belegt; Gelingensbedingungen (Strukturierung/Rollen/Kriterien) sind entscheidend.</p>
+          <blockquote>„Die Überlegenheit kooperativen Lernens … wurde … empirisch bestätigt.“</blockquote>
+          <div class="jump"><button class="btn" data-target="u_4_2_3">Zum Original (S. <span data-page-label="u_4_2_3"></span>)</button></div>
+          <div class="editbar" data-edit="u_4_2_3" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>4.2.4 Üben & Wiederholen</h3>
+          <p>Besonders wirksam auf Basis konzeptuellen Verständnisses; Beziehungen zu Prozeduren wechselseitig.</p>
+          <div class="jump"><button class="btn" data-target="u_4_2_4">Zum Original (S. <span data-page-label="u_4_2_4"></span>)</button></div>
+          <div class="editbar" data-edit="u_4_2_4" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>4.2.5 Hausaufgaben</h3>
+          <p>Keine lineare Zeit–Leistung‑Beziehung in der deutschsprachigen Forschung.</p>
+          <blockquote>„… keine linear positiven Zusammenhänge zwischen … Hausaufgabenzeit und Lernerfolg …“</blockquote>
+          <div class="jump"><button class="btn" data-target="u_4_2_5">Zum Original (S. <span data-page-label="u_4_2_5"></span>)</button></div>
+          <div class="editbar" data-edit="u_4_2_5" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>4.3 Konstruktivistisch orientierte Unterrichtsforschung</h3>
+          <p>Abschnitte zu situiertem Lernen, kognitiver und metakognitiver Aktivierung.</p>
+          <div class="jump"><button class="btn" data-target="u_4_3">Zum Original (S. <span data-page-label="u_4_3"></span>)</button></div>
+          <div class="editbar" data-edit="u_4_3" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>4.3.1 Situiertes Lernen</h3>
+          <p>„Konstruktivistische Ansätze“ sind Erkenntnistheorien, keine Unterrichtsrezepte; Überlegenheitsnachweise uneinheitlich.</p>
+          <blockquote>„… konstruktivistische Ansätze … <em>keine Unterrichtstheorien</em>, sondern Erkenntnistheorien …“</blockquote>
+          <div class="jump"><button class="btn" data-target="u_4_3_1">Zum Original (S. <span data-page-label="u_4_3_1"></span>)</button></div>
+          <div class="editbar" data-edit="u_4_3_1" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>4.3.2 Kognitive Aktivierung</h3>
+          <p>Herausfordernde Aufgaben, Begründungen, Konflikte, Verknüpfung mit Vorwissen → Leistungszuwachs.</p>
+          <blockquote>„… wenn der Lehrer … mit <em>herausfordernden Aufgaben</em> … und zu einem fachlich anspruchsvollen Diskurs …“</blockquote>
+          <div class="jump"><button class="btn" data-target="u_4_3_2">Zum Original (S. <span data-page-label="u_4_3_2"></span>)</button></div>
+          <div class="editbar" data-edit="u_4_3_2" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+        <div class="sub">
+          <h3>4.3.3 Metakognitive Aktivierung</h3>
+          <p>Wirkungsstark v. a. durch die metakognitive Trainingskomponente (IMPROVE).</p>
+          <blockquote>„… für diese positiven Effekte offenbar vor allem das <em>metakognitive Training</em> verantwortlich …“</blockquote>
+          <div class="jump"><button class="btn" data-target="u_4_3_3">Zum Original (S. <span data-page-label="u_4_3_3"></span>)</button></div>
+          <div class="editbar" data-edit="u_4_3_3" hidden>Seite: <input type="number" min="1"></div>
+        </div>
+
+      </div>
+    </details>
+
+    <!-- 5. Fazit -->
+    <details class="section" open id="sec-fazit">
+      <summary>5. Schlussfolgerungen / Fazit</summary>
+      <div class="inner">
+        <p>Aktive Lehrerrolle; schülerorientierte Formen mit Trainings koppeln; Kombination aus lehrergelenkt und schüleraktiv ist überlegen; kompensatorische Wirkung.</p>
+        <blockquote>„… Die Einführung schülerorientierterer Arbeitsformen sollte … mit Trainingsmaßnahmen gekoppelt werden …“<br><br>„Offenbar kommt es also nicht auf ein ‚entweder oder‘, sondern auf ein intelligentes … ‚sowohl als auch‘ an.“</blockquote>
+        <div class="jump"><button class="btn" data-target="fazit">Zum Original (Seite <span data-page-label="fazit"></span>)</button></div>
+        <div class="editbar" data-edit="fazit" hidden>Seite: <input type="number" min="1"></div>
+      </div>
+    </details>
+
+  </aside>
+
+  <section class="right">
+    <div id="pdfHost" aria-label="PDF-Container"></div>
+  </section>
+</div>
+
+<script>
+(function(){
+  const pdfFile = "Lipowsky_Auf_den_Lehrer_kommt_es_an.pdf";
+  const openAll = document.getElementById('openAll');
+  const closeAll = document.getElementById('closeAll');
+  const openPdf = document.getElementById('openPdf');
+  const toggleEdit = document.getElementById('toggleEdit');
+  const host = document.getElementById('pdfHost');
+
+  // Mapping (PDF-Seiten) – 1. Artikelseite = PDF 6
+  const DEFAULT_MAP = {
+    einleitung: 6,
+    determinanten: 7,
+    kompetenzen: 8,
+    k_3_1: 9,
+    k_3_2: 11,
+    k_3_3: 12,
+    k_3_4: 12,
+    k_3_5: 13,
+    k_3_6: 14,
+    unterricht: 15,
+    u_4_1: 15,
+    u_4_2: 15,
+    u_4_2_1: 15,
+    u_4_2_2: 17,
+    u_4_2_3: 17,
+    u_4_2_4: 17,
+    u_4_2_5: 18,
+    u_4_3: 19,
+    u_4_3_1: 18,
+    u_4_3_2: 19,
+    u_4_3_3: 21,
+    fazit: 24
+  };
+
+  const KEY = 'lipowsky-page-map-v6';
+  function loadMap(){
+    try{ const raw = localStorage.getItem(KEY); if(raw) return Object.assign({}, DEFAULT_MAP, JSON.parse(raw)); }
+    catch(e){}
+    return Object.assign({}, DEFAULT_MAP);
+  }
+  let pageMap = loadMap();
+
+  function updateLabels(){
+    document.querySelectorAll('[data-page-label]').forEach(span=>{
+      const key = span.getAttribute('data-page-label');
+      span.textContent = pageMap[key] ?? '?';
+    });
+  }
+
+  function rebuildPdf(page){
+    while(host.firstChild) host.removeChild(host.firstChild);
+    const src = pdfFile + '?_=' + Date.now() + '#page=' + encodeURIComponent(page) + '&zoom=page-fit';
+    const emb = document.createElement('embed');
+    emb.type = 'application/pdf';
+    emb.src = src;
+    host.appendChild(emb);
+    setTimeout(()=>{
+      if(!emb.clientHeight || emb.clientHeight < 50) {
+        host.removeChild(emb);
+        const frame = document.createElement('iframe');
+        frame.src = src;
+        host.appendChild(frame);
+      }
+    }, 200);
+  }
+
+  function goto(section){
+    const p = pageMap[section] || 1;
+    rebuildPdf(p);
+    const secEl = document.querySelector('[data-edit="' + section + '"]')?.closest('.sub,.section');
+    if(secEl){
+      secEl.style.boxShadow = '0 0 0 3px rgba(37,99,235,.25)';
+      setTimeout(()=> secEl.style.boxShadow = '', 800);
+    }
+  }
+
+  // Buttons
+  document.querySelectorAll('.jump .btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const key = e.currentTarget.getAttribute('data-target');
+      goto(key);
+    });
+  });
+
+  openAll.addEventListener('click', ()=> document.querySelectorAll('details.section').forEach(d=> d.open = true));
+  closeAll.addEventListener('click', ()=> document.querySelectorAll('details.section').forEach(d=> d.open = false));
+  openPdf.addEventListener('click', ()=> window.open(pdfFile + '#page=' + (pageMap.einleitung||6), '_blank'));
+
+  // Edit mode
+  let edit = false;
+  function applyInputs(){
+    document.querySelectorAll('.editbar').forEach(bar=>{
+      const key = bar.getAttribute('data-edit');
+      const input = bar.querySelector('input[type="number"]');
+      input.value = pageMap[key] || 1;
+      input.addEventListener('change', ()=>{
+        const val = Math.max(1, parseInt(input.value||'1',10));
+        pageMap[key] = val; localStorage.setItem(KEY, JSON.stringify(pageMap)); updateLabels();
+      });
+    });
+  }
+  toggleEdit.addEventListener('click', ()=>{
+    edit = !edit;
+    document.querySelectorAll('.editbar').forEach(e=> e.hidden = !edit);
+    toggleEdit.textContent = edit ? 'Bearbeiten beenden' : 'Seitennummern bearbeiten';
+  });
+
+  updateLabels();
+  applyInputs();
+
+  // Optional deep link
+  const params = new URLSearchParams(location.search);
+  const sec = params.get('sec');
+  if(sec && pageMap[sec]) goto(sec); else rebuildPdf(pageMap.einleitung || 6);
+})();
+</script>
+</body>
+</html>
