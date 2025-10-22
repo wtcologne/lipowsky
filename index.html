@@ -20,7 +20,7 @@
     .controls{display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:8px}
     .btn{border:1px solid var(--border); background:#fff; padding:8px 10px; border-radius:10px; cursor:pointer}
     .btn.primary{background:linear-gradient(90deg, rgba(22,163,74,.08), rgba(37,99,235,.08)); border-color:rgba(2,6,23,.18)}
-    .layout{max-width:1400px; margin:16px auto 32px; padding:0 18px; display:grid; grid-template-columns: 1.25fr 1.75fr; gap:16px}
+    .layout{max-width:1400px; margin:16px auto 32px; padding:0 18px; display:grid; grid-template-columns: 1fr 2.5fr; gap:16px}
     @media (max-width:1100px){ .layout{grid-template-columns:1fr} }
     .left, .right{background:#fff; border:1px solid var(--border); border-radius:16px}
     .left{padding:14px; overflow:auto; max-height:calc(100vh - 160px)}
@@ -53,10 +53,8 @@
     <div class="controls">
       <button class="btn" id="openAll">Alle öffnen</button>
       <button class="btn" id="closeAll">Alle schließen</button>
-      <button class="btn" id="toggleEdit">Seitennummern bearbeiten</button>
       <button class="btn primary" id="openPdf">PDF in neuem Tab</button>
     </div>
-    <div class="note">Vertikale Darstellung: Alle Unterpunkte in 3.x und 4.x sind jetzt untereinander angeordnet. Zuordnung: <strong>Erste Artikelseite = PDF‑Seite 6</strong>.</div>
   </div>
 </header>
 
@@ -65,7 +63,7 @@
     <h2>Gliederung (mit Unterabschnitten & Zitaten)</h2>
 
     <!-- 1. Einleitung -->
-    <details class="section" open id="sec-einleitung">
+    <details class="section" id="sec-einleitung">
       <summary>1. Einleitung</summary>
       <div class="inner">
         <p>Leitthese, Ziel des Übersichtsbeitrags, theoretisch‑empirischer Rahmen.</p>
@@ -80,7 +78,7 @@
     </details>
 
     <!-- 2. Determinanten -->
-    <details class="section" open id="sec-determinanten">
+    <details class="section" id="sec-determinanten">
       <summary>2. Determinanten des Lernerfolgs (Angebots‑Nutzungs‑Modell)</summary>
       <div class="inner">
         <div class="sub">
@@ -247,7 +245,7 @@
     </details>
 
     <!-- 5. Fazit -->
-    <details class="section" open id="sec-fazit">
+    <details class="section" id="sec-fazit">
       <summary>5. Schlussfolgerungen / Fazit</summary>
       <div class="inner">
         <p>Aktive Lehrerrolle; schülerorientierte Formen mit Trainings koppeln; Kombination aus lehrergelenkt und schüleraktiv ist überlegen; kompensatorische Wirkung.</p>
@@ -270,7 +268,6 @@
   const openAll = document.getElementById('openAll');
   const closeAll = document.getElementById('closeAll');
   const openPdf = document.getElementById('openPdf');
-  const toggleEdit = document.getElementById('toggleEdit');
   const host = document.getElementById('pdfHost');
 
   // Mapping (PDF-Seiten) – 1. Artikelseite = PDF 6
@@ -353,27 +350,7 @@
   closeAll.addEventListener('click', ()=> document.querySelectorAll('details.section').forEach(d=> d.open = false));
   openPdf.addEventListener('click', ()=> window.open(pdfFile + '#page=' + (pageMap.einleitung||6), '_blank'));
 
-  // Edit mode
-  let edit = false;
-  function applyInputs(){
-    document.querySelectorAll('.editbar').forEach(bar=>{
-      const key = bar.getAttribute('data-edit');
-      const input = bar.querySelector('input[type="number"]');
-      input.value = pageMap[key] || 1;
-      input.addEventListener('change', ()=>{
-        const val = Math.max(1, parseInt(input.value||'1',10));
-        pageMap[key] = val; localStorage.setItem(KEY, JSON.stringify(pageMap)); updateLabels();
-      });
-    });
-  }
-  toggleEdit.addEventListener('click', ()=>{
-    edit = !edit;
-    document.querySelectorAll('.editbar').forEach(e=> e.hidden = !edit);
-    toggleEdit.textContent = edit ? 'Bearbeiten beenden' : 'Seitennummern bearbeiten';
-  });
-
   updateLabels();
-  applyInputs();
 
   // Optional deep link
   const params = new URLSearchParams(location.search);
